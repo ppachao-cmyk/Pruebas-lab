@@ -16,16 +16,16 @@
    TOKENS DE DISEÑO
    ========================================================= */
 :root {
-  --color-bg: #eef1f0;
-  --color-surface: #ffffff;
-  --color-primary: #1b3a5c;
+  --color-bg: #416f5f;
+  --color-surface: #151010;
+  --color-primary: #153352;
   --color-primary-dark: #12293f;
   --color-accent: #b98a3d;
   --color-text: #23282d;
   --color-text-muted: #5c6570;
-  --color-border: #d6dbdd;
+  --color-border: #3b778f;
   --color-error: #a4322a;
-  --color-error-bg: #fbeceb;
+  --color-error-bg: #482b29;
 
   --font-serif: Georgia, 'Times New Roman', Times, serif;
   --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
