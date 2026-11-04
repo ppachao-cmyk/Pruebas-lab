@@ -1,14 +1,10 @@
 {
-  "name": "unimarket",
+  "name": "ctx",
   "version": "1.0.0",
-  "description": "Marketplace universitario con registro, sesiones seguras y resenas (Laboratorio 07)",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "node --watch app.js"
+  "private": true,
+  "engines": {
+    "node": "20.x"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
     "bcryptjs": "^3.0.3",
