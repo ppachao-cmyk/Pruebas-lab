@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniMarket: compra y vende en el campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pub/style/style.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="cabecera-interior">
+    <a class="marca" href="#" id="marca">UniMarket</a>
+    <nav class="menu" aria-label="Principal">
+      <button class="enlace-menu" data-vista="productos">Productos</button>
+      <button class="enlace-menu" data-vista="vender">Vender</button>
+      <button class="enlace-menu" data-vista="cuenta">Mi cuenta</button>
+    </nav>
+    <div class="sesion" id="zona-sesion"></div>
+  </div>
+</header>
+
+<main class="contenido">
+  <div id="mensaje" class="mensaje oculto" role="status" aria-live="polite"></div>
+
+  <!-- VISTA: lista de productos -->
+  <section id="vista-productos" class="vista">
+    <form id="form-busqueda" class="busqueda">
+      <input type="search" id="buscar" placeholder="¿Qué buscas hoy en el campus?" aria-label="Buscar productos">
+      <select id="filtro-categoria" aria-label="Categoría"></select>
+      <button type="submit" class="btn">Buscar</button>
+    </form>
+    <p id="resumen-lista" class="resumen"></p>
+    <div id="lista-productos" class="grilla"></div>
+  </section>
+
+  <!-- VISTA: detalle de un producto (compra y reseñas) -->
+  <section id="vista-detalle" class="vista oculto">
+    <button class="btn-texto" id="volver">Volver a los productos</button>
+    <div id="detalle"></div>
+  </section>
+
+  <!-- VISTA: iniciar sesión y registrarse -->
+  <section id="vista-auth" class="vista oculto">
+    <div class="auth-grid">
+      <form id="form-login" class="panel">
+        <h2>Iniciar sesión</h2>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" autocomplete="username">
+        <label for="login-password">Contraseña</label>
+        <input type="password" id="login-password" autocomplete="current-password">
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+
+      <form id="form-registro" class="panel">
+        <h2>Crear cuenta</h2>
+        <label for="reg-nombre">Nombre</label>
+        <input type="text" id="reg-nombre" autocomplete="name">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" autocomplete="email">
+        <label for="reg-password">Contraseña (mínimo 6 caracteres)</label>
+        <input type="password" id="reg-password" autocomplete="new-password">
+        <button type="submit" class="btn btn-secundario">Registrarme</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- VISTA: vender (publicar y editar productos) -->
+  <section id="vista-vender" class="vista oculto">
+    <form id="form-producto" class="panel">
+      <h2 id="titulo-form-producto">Publicar un producto</h2>
+      <div class="fila-campos">
+        <div class="campo">
+          <label for="prod-nombre">Nombre</label>
+          <input type="text" id="prod-nombre" maxlength="80">
+        </div>
+        <div class="campo">
+          <label for="prod-categoria">Categoría</label>
+          <select id="prod-categoria"></select>
+        </div>
+      </div>
+      <label for="prod-descripcion">Descripción</label>
+      <textarea id="prod-descripcion" rows="3" maxlength="500"></textarea>
+      <div class="fila-campos">
+        <div class="campo">
+          <label for="prod-precio">Precio (S/)</label>
+          <input type="number" id="prod-precio" min="0.01" step="0.01">
+        </div>
+        <div class="campo">
+          <label for="prod-stock">Unidades disponibles</label>
+          <input type="number" id="prod-stock" min="0" step="1">
+        </div>
+      </div>
+      <div class="acciones">
+        <button type="submit" id="btn-guardar-producto" class="btn">Publicar</button>
+        <button type="button" id="btn-cancelar-edicion" class="btn btn-secundario oculto">Cancelar</button>
+      </div>
+    </form>
+
+    <h2 class="subtitulo">Mis productos</h2>
+    <div id="mis-productos" class="grilla"></div>
+  </section>
+
+  <!-- VISTA: mi cuenta (datos, compras y ventas) -->
+  <section id="vista-cuenta" class="vista oculto">
+    <div id="datos-cuenta" class="panel"></div>
+    <h2 class="subtitulo">Mis compras</h2>
+    <div id="tabla-compras"></div>
+    <h2 class="subtitulo">Mis ventas</h2>
+    <div id="tabla-ventas"></div>
+  </section>
+</main>
+
+<footer class="pie">
+  UniMarket es un proyecto del curso Introducción al Desarrollo Web. Las compras son simuladas y no se hacen pagos reales.
+</footer>
+
+<script src="pub/js/main.js"></script>
+</body>
+</html>
